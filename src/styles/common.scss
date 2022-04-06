@@ -1,0 +1,26 @@
+html,
+body,
+#app {
+  width: 100vw;
+  height: 100vh;
+  position: relative;
+}
+
+a {
+  background: transparent;
+  text-decoration: none;
+  outline: none;
+  cursor: pointer;
+  transition: color .2s ease;
+}
+
+a:active,
+a:hover {
+  outline-width: 0;
+}
+
+a:active,
+a:hover {
+  outline: 0;
+  text-decoration: none;
+}

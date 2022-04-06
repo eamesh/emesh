@@ -1,0 +1,46 @@
+.upload-layout {
+  .upload-header {
+    margin-bottom: 6px;
+  }
+
+  .upload-sider {
+    padding-right: 12px;
+    border-right: 1px solid var(--n-border-color);
+  }
+
+  .n-menu .n-menu-item-content::before {
+    left: 0;
+    right: 0;
+  }
+
+  .list-image {
+    width: 100%;
+    height: 98px;
+    position: relative;
+    cursor: pointer;
+
+    &__selected {
+      position: absolute;
+      bottom: 0;
+      right: 0;
+      display: none;
+
+      .n-icon {
+        color: var(--n-selected-color);
+      }
+    }
+  }
+
+  .selected {
+    .list-image {
+      &__selected {
+        display: block;
+      }
+    }
+  }
+
+  .n-image {
+    width: 100%;
+    height: 98px;
+  }
+}

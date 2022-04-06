@@ -1,0 +1,19 @@
+.goods-action {
+  display: flex;
+  flex-direction: column;
+  padding-bottom: 60px;
+
+  &__footer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 60px;
+  }
+
+  .types-disabled {
+    & > .goods-type {
+      cursor: not-allowed;
+      cursor: no-drop;
+    }
+  }
+}

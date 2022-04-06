@@ -1,0 +1,29 @@
+.goods-form {
+  :deep(.form-short) {
+    .form-item-blank {
+      width: 160px;
+    }
+  }
+
+  :deep(.form-mid) {
+    .form-item-blank {
+      width: 460px;
+    }
+  }
+
+  :deep(.form-long) {
+    .form-item-blank {
+      width: 800px;
+    }
+  }
+
+  // :deep(.n-form-item-label) {
+  //   font-size: 10px;
+  // }
+
+  :deep(.n-checkbox),
+  :deep(.n-radio) {
+    display: flex;
+    align-items: center;
+  }
+}
