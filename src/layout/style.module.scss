@@ -1,0 +1,10 @@
+.hiddenContainer,
+.hiddencontent {
+  padding: 12px 24px;
+}
+
+.hiddenMenus {
+  :global(.n-menu-item-content::before) {
+    left: 0;
+  }
+}

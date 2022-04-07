@@ -6,6 +6,7 @@
     :collapsed-icon-size="20"
     :expanded-keys="state.openKeys"
     :value="getSelectedKeys"
+    :root-indent="rootIndent"
     @update:value="clickMenuItem"
     @update:expanded-keys="menuExpanded"
   />
@@ -31,6 +32,11 @@ const props = defineProps({
   mode: {
     type: String,
     default: 'horizontal'
+  },
+
+  rootIndent: {
+    type: Number,
+    default: 32
   }
 });
 

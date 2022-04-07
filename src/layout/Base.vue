@@ -7,7 +7,7 @@
     <layout-header />
 
     <n-layout has-sider>
-      <layout-sider />
+      <layout-sider v-if="!hideSider" />
       <n-layout-content :native-scrollbar="false">
         <n-breadcrumb
           :style="{
@@ -25,7 +25,8 @@
             </n-breadcrumb-item>
           </template>
         </n-breadcrumb>
-        <router-view />
+        <router-view v-if="!hideSider" />
+        <slot v-else />
       </n-layout-content>
     </n-layout>
     <n-layout-footer
@@ -43,6 +44,13 @@ import { computed } from 'vue';
 import { useRoute } from 'vue-router';
 import { Header as LayoutHeader } from './components/header';
 import { Sider as LayoutSider } from './components/sider';
+
+defineProps({
+  hideSider: {
+    type: Boolean,
+    default: false
+  }
+});
 
 const route = useRoute();
 
