@@ -11,7 +11,7 @@ const Icons = {
   ...Antd
 };
 
-const LayoutMap = new Map<string, () => Promise<typeof import('*.vue')>>();
+const LayoutMap = new Map<string, () => Promise<any>>();
 
 LayoutMap.set('BASE', Layout);
 LayoutMap.set('NORMAL', NormalLayout);

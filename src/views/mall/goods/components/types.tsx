@@ -93,12 +93,13 @@ export default defineComponent({
         {
           types.map((item, index) => (
             <GoodsType
-              index={index}
               key={index}
               title={item.title}
               delivery={item.delivery}
               active={this.activeKey === item.key}
-              onClick={() => handleTrigger(item.key)}
+              {...{
+                onClick: () => handleTrigger(item.key)
+              }}
             />
           ))
         }

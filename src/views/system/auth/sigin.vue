@@ -80,8 +80,8 @@ interface ModelType {
 }
 
 const model = ref<ModelType>({
-  email: null,
-  password: null,
+  email: 'easeava@gmail.com',
+  password: '123456',
   device_name: 'control'
 });
 

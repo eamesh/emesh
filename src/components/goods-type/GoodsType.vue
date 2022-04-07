@@ -21,7 +21,7 @@ const props = defineProps({
   active: {
     type: Boolean,
     default: false
-  }
+  },
 });
 
 const deliveryText = computed(() => {
