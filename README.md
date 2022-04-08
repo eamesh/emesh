@@ -4,7 +4,7 @@ Vite + TypeScript + Naive UI + Free Core + Nutui
 跨端小程序项目
 疫情闲得慌，教弟弟写代码。所以它就来了  
 [free-core](https://github.com/eamesh/free-core)  
-[free-nutui](https://github.com/eamesh/free-nutui)
+[free-nutui](https://github.com/eamesh/free-nutui)  
 api部分是目前是私有项目, 基础功能开发完会开源
 
 ## Preview
