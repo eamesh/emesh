@@ -14,7 +14,7 @@
 <script setup lang="ts">
 import { Application } from './components/application';
 
-import { darkTheme, zhCN, dateZhCN } from 'naive-ui';
+import { zhCN, dateZhCN, darkTheme } from 'naive-ui';
 import { computed, ref } from 'vue';
 import { useThemeStore } from './store/modules/theme';
 import { globalTheme } from './theme';
