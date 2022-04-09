@@ -5,10 +5,12 @@ import { renderIcon } from './icons';
 import { AppRouteRecordRaw } from './interface';
 import * as Ionicons5 from '@vicons/ionicons5';
 import * as Antd from '@vicons/antd';
+import * as Fluent from '@vicons/fluent';
 
 const Icons = {
   ...Ionicons5,
-  ...Antd
+  ...Antd,
+  ...Fluent
 };
 
 const LayoutMap = new Map<string, () => Promise<any>>();

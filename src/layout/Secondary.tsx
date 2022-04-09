@@ -18,7 +18,7 @@ export default defineComponent({
       <LayoutBase hideSider>
         <div class={$style.hiddenContainer}>
           <NLayout hasSider>
-            <LayoutSider class={$style.hiddenMenus} rootIndent={12} width={'160'} />
+            <LayoutSider class={$style.hiddenMenus} width={'160'} />
             {/* <NLayoutSider width={160} style={{ minHeight: '400px' }} bordered>
               <NMenu rootIndent={14} class={$style.hiddenMenus} defaultValue={'page'}></NMenu>
             </NLayoutSider> */}
