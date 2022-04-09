@@ -1,3 +1,4 @@
+import { SpaceView } from '@/components/space-view';
 import { defineComponent } from 'vue';
 
 export default defineComponent({
@@ -9,7 +10,9 @@ export default defineComponent({
 
   render () {
     return (
-      <div>data analysis</div>
+      <SpaceView>
+        实时分析
+      </SpaceView>
     );
   }
 });

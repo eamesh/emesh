@@ -1,6 +1,6 @@
 <template>
   <space-view>
-    系统设置
+    权限管理
   </space-view>
 </template>
 

@@ -1,3 +1,4 @@
+import { SpaceView } from '@/components/space-view';
 import { defineComponent } from 'vue';
 
 export default defineComponent({
@@ -9,7 +10,9 @@ export default defineComponent({
 
   render () {
     return (
-      <div>resource index</div>
+      <SpaceView>
+        素材中心
+      </SpaceView>
     );
   }
 });
