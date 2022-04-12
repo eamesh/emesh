@@ -37,6 +37,9 @@ module.exports = {
           ],
         }
       ],
+      "number-max-precision": null,
+      'scss/dollar-variable-pattern': null,
+      'max-line-length': 160
     },
     ignoreFiles: ['**/*.js', '**/*.jsx', '**/*.tsx', '**/*.ts'],
   };

@@ -4,6 +4,8 @@ import App from './App.vue';
 import { setupStore } from './store';
 import { setupRouter } from './router';
 import { setMeta } from './utils/naive-ui';
+import NutUI from '@nutui/nutui';
+import '@nutui/nutui/dist/style.css';
 
 const bootstrap = async (): Promise<void> => {
   const app = createApp(App);
@@ -16,6 +18,8 @@ const bootstrap = async (): Promise<void> => {
   // await router.isReady();
 
   setMeta();
+
+  app.use(NutUI);
 
   app.mount('#app', true);
 };

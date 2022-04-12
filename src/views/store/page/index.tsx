@@ -1,3 +1,4 @@
+import { RouterButton } from '@/components/router-button';
 import { SpaceView } from '@/components/space-view';
 import { DataTableColumn, MenuOption, NA, NButton, NCard, NDataTable, NDivider, NForm, NFormItem, NInput, NSelect, NSpace } from 'naive-ui';
 import { defineComponent, h } from 'vue';
@@ -88,12 +89,9 @@ export default defineComponent({
         <NSpace vertical size={[0, 16]}>
           <StoreTabs defaultValue='page' />
           <NSpace>
-            <NA {...{
-              href: 'https://nutui.emesh.cloud',
-              target: '_blank'
-            }}>
-              <NButton type='primary'>新建微页面</NButton>
-            </NA>
+            <RouterButton target='_blank' type='primary' to='/diy'>
+              新建微页面
+            </RouterButton>
           </NSpace>
 
           <NCard embedded bordered={false}>

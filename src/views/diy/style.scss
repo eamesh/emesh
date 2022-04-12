@@ -1,1 +1,14 @@
 @import "free-core/lib/style.css";
+
+.free-action-render {
+  padding: 16px;
+
+  .action-item-label {
+    font-size: 14px;
+  }
+}
+
+.secondary-container {
+  padding: 12px 16px;
+  background-color: #f7f8fa;
+}

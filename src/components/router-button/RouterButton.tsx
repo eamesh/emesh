@@ -1,4 +1,4 @@
-import { NButton } from 'naive-ui';
+import { NA, NButton } from 'naive-ui';
 import { Size, Type } from 'naive-ui/lib/button/src/interface';
 import { defineComponent, PropType } from 'vue';
 import { RouteLocationRaw, RouterLink } from 'vue-router';
@@ -11,6 +11,10 @@ const routerButtonProps = {
   type: {
     type: String as PropType<Type>,
     default: 'default',
+  },
+  target: {
+    type: String as PropType<'_blank' | '_self' | '_top' | '_parent'>,
+    default: '_self'
   },
   size: String as PropType<Size>
 };
@@ -26,6 +30,7 @@ export default defineComponent({
 
   render () {
     const {
+      target,
       to,
       type,
       size,
@@ -33,10 +38,24 @@ export default defineComponent({
     } = this;
 
     return (
-      <RouterLink to={to!} class='router-button'>
-        <NButton type={type} size={size}>
-          {$slots}
-        </NButton>
+      <RouterLink to={to!} custom class='router-button'>
+        {{
+          default: ({ href, navigate }: any) => {
+            return (
+              <NA
+                {...{
+                  href,
+                  target,
+                  onClick: target === '_blank' ? () => {} : navigate
+                }}
+              >
+                <NButton type={type} size={size}>
+                  {$slots}
+                </NButton>
+              </NA>
+            );
+          }
+        }}
       </RouterLink>
     );
   }
