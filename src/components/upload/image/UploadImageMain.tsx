@@ -1,5 +1,5 @@
 import { NIcon, NImageGroup, NInput, NMenu, NSpace } from 'naive-ui';
-import { defineComponent, h, PropType, provide } from 'vue';
+import { defineComponent, PropType, provide } from 'vue';
 import UploadMain from '../UploadMain';
 import { NBaseIcon } from 'naive-ui/lib/_internal';
 import { AddIcon } from 'naive-ui/lib/_internal/icons';
@@ -22,6 +22,7 @@ export const uploadMainImageProps = {
   },
   onUpdateFileList: Function as PropType<(files: FileInfo[]) => void>,
   'onUpdate:fileList': Function as PropType<(files: FileInfo[]) => void>,
+  onSelect: Function as PropType<(files: FileInfo[]) => void>,
 };
 
 interface UploadImageMainInjection {
@@ -85,9 +86,7 @@ export default defineComponent({
       <UploadMain ref="mainRef" max={mainMax} title='我的图片' onSelected={handleSelect}>
         {{
           default: ({ toggle }: { toggle: () => void }) => (
-            $slots.default ? h($slots.default(), {
-              onClick: toggle
-            }) : <div
+            $slots.default ? $slots.default({ toggle }) : <div
               class={[
                 `${mergedClsPrefix}-upload`,
               ]}

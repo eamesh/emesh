@@ -32,6 +32,14 @@
   }
 }
 
+.image-ad-card {
+  .n-upload-trigger.n-upload-trigger--image-card,
+  .n-upload-file-list .n-upload-file.n-upload-file--image-card-type {
+    width: 46px;
+    height: 46px;
+  }
+}
+
 .carousel-container {
   .carousel-add {
     width: 100%;

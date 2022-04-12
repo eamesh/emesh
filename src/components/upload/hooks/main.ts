@@ -69,6 +69,10 @@ export const useMain = (props: any) => {
       ...fileListRef.value,
       ...selects
     ]);
+
+    // 新增
+    const { onSelect } = props;
+    if (onSelect) onSelect(selects);
   };
 
   const handleSelectChange = (selects: SelectListSchema) => {

@@ -1,17 +1,44 @@
 import { FreeActionTitle } from 'free-core';
 import { NButton, NDivider, NForm, NFormItem, NIcon, NInputNumber, NRadioButton, NRadioGroup, NSlider, NSpace, NText, NThing } from 'naive-ui';
-import { ref, unref } from 'vue';
+import { computed, ref, unref } from 'vue';
 import { Add16Regular, AppRecent20Regular, Copy20Regular, BorderOutside24Regular, Circle24Regular } from '@vicons/fluent';
+import { UploadImageMain } from '@/components/upload';
+import AdItem from './components/AdItem';
+import { AdItemData, NutuiImageAdProps } from './ImageAd';
+import { FileInfo } from 'naive-ui/lib/upload/src/interface';
 
-export const useAction = () => {
-  const model = ref({
-    type: 'default',
-    imageType: 'regular',
-    radioType: 'square',
-    pagePadding: 0,
-    imagePadding: 0
-  });
+export const useAction = (props: any) => {
+  const model = ref<NutuiImageAdProps>(props.data);
   const modelUnref = unref(model);
+  const maxImage = computed(() => {
+    return 10 - modelUnref.ads.length;
+  });
+
+  const fileListCompute = computed<FileInfo[]>({
+    get () {
+      return modelUnref.ads.map((item: AdItemData, index) => {
+        return {
+          id: index.toString(),
+          name: '',
+          status: 'finished',
+          url: item.img_url,
+          thumbnailUrl: item.img_url
+        };
+      }) as FileInfo[];
+    },
+    set (files: FileInfo[]) {
+      console.log(files);
+    }
+  });
+
+  function handleAddImage (files: FileInfo[]) {
+    files.forEach(item => {
+      modelUnref.ads.push({
+        img_url: item.thumbnailUrl as string,
+        redirect: {}
+      });
+    });
+  }
 
   function renderAction () {
     return (
@@ -93,14 +120,30 @@ export const useAction = () => {
             </div>
 
             <NSpace vertical class='secondary-container carousel-container'>
-              <NButton type='primary' class='carousel-add' ghost>{{
-                icon: () => (
-                  <NIcon>
-                    <Add16Regular />
-                  </NIcon>
-                ),
-                default: () => '添加背景图'
-              }}</NButton>
+              {
+                modelUnref.ads.map((item, index) => {
+                  return (
+                    <AdItem v-model:data={item} index={index} />
+                  );
+                })
+              }
+
+              {
+                maxImage.value ? (
+                  <UploadImageMain max={maxImage.value} v-model:fileList={fileListCompute.value} onSelect={handleAddImage}>
+                    {{
+                      default: ({ toggle }: any) => <NButton type='primary' class='carousel-add' ghost onClick={toggle}>{{
+                          icon: () => (
+                            <NIcon>
+                              <Add16Regular />
+                            </NIcon>
+                          ),
+                          default: () => '添加背景图'
+                        }}</NButton>
+                    }}
+                  </UploadImageMain>
+                ) : null
+              }
             </NSpace>
 
             <div class='free-action-form free-action-render'>

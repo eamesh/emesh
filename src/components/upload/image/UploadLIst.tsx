@@ -112,21 +112,15 @@ export default defineComponent({
     );
 
     setTimeout(() => {
-      dataRef.value = [
-        {
-          id: '1',
+      dataRef.value = [...Array(10)].map((_, i) => {
+        return {
+          id: i.toString(),
           name: '',
           status: 'finished',
           thumbnailUrl: 'https://07akioni.oss-cn-beijing.aliyuncs.com/07akioni.jpeg'
-        },
-        {
-          id: '2',
-          name: '',
-          status: 'finished',
-          thumbnailUrl: 'https://07akioni.oss-cn-beijing.aliyuncs.com/07akioni.jpeg'
-        }
-      ];
-    }, 3000);
+        };
+      });
+    }, 1000);
 
     const typeText = computed(() => {
       return props.type === 'image' ? '图片' : '视频';

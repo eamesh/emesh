@@ -75,7 +75,7 @@ export default defineComponent({
               <NImage
                 src={file?.url || file?.thumbnailUrl || undefined}
                 previewSrc={file?.thumbnailUrl || file?.url || undefined}
-                alt="测试"
+                alt=""
                 ref="imageRef"
               />
           </a>

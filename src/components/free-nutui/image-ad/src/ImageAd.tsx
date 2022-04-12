@@ -5,12 +5,27 @@ import { useAction } from './action';
 
 import './style.scss';
 
+export interface AdItemData {
+  img_url: string;
+  redirect: object;
+}
+
 export interface NutuiImageAdProps {
-  title: string;
+  type: 'default' | 'small' | 'dot' | 'block' | 'rectangle';
+  radioType: 'square' | 'round';
+  imageType: 'shadow' | 'regular';
+  pagePadding: number;
+  imagePadding: number;
+  ads: AdItemData[];
 }
 
 const nutuiImageAdProps = widgetDataProps<NutuiImageAdProps>({
-  title: '测试'
+  type: 'default',
+  imageType: 'regular',
+  radioType: 'square',
+  pagePadding: 0,
+  imagePadding: 0,
+  ads: []
 });
 
 export default defineComponent({
@@ -18,11 +33,11 @@ export default defineComponent({
 
   props: nutuiImageAdProps,
 
-  setup () {
+  setup (props) {
     const {
       model,
       renderAction
-    } = useAction();
+    } = useAction(props);
 
     return {
       model,
