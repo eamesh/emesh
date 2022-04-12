@@ -43,7 +43,7 @@ export default defineComponent({
             }
           },
           {
-            breakpoint: 1620,
+            breakpoint: 1660,
             options: {
               chart: {
                 width: 150

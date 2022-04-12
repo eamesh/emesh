@@ -88,8 +88,26 @@ export default defineComponent({
           }]
         },
         grid: {
-            borderColor: '#f1f1f1'
-        }
+          borderColor: '#f1f1f1'
+        },
+        responsive: [
+          {
+            breakpoint: 1760,
+            options: {
+              chart: {
+                height: 338
+              }
+            }
+          },
+          {
+            breakpoint: 1620,
+            options: {
+              chart: {
+                height: 301
+              }
+            }
+          }
+        ]
       },
     });
 
@@ -108,7 +126,7 @@ export default defineComponent({
           h(VueApexCharts, {
             height: 387,
             options: data.chartOptions,
-            series: data.series
+            series: data.series,
           })
         }
       </NCard>
