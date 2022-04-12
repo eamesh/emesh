@@ -1,5 +1,5 @@
 import { NIcon, NImageGroup, NInput, NMenu, NSpace } from 'naive-ui';
-import { defineComponent, PropType, provide } from 'vue';
+import { defineComponent, h, PropType, provide } from 'vue';
 import UploadMain from '../UploadMain';
 import { NBaseIcon } from 'naive-ui/lib/_internal';
 import { AddIcon } from 'naive-ui/lib/_internal/icons';
@@ -76,7 +76,8 @@ export default defineComponent({
       mainMax,
       groupOptions,
       renderCount,
-      handleSelectChange
+      handleSelectChange,
+      $slots
     } = this;
 
 
@@ -84,7 +85,9 @@ export default defineComponent({
       <UploadMain ref="mainRef" max={mainMax} title='我的图片' onSelected={handleSelect}>
         {{
           default: ({ toggle }: { toggle: () => void }) => (
-            <div
+            $slots.default ? h($slots.default(), {
+              onClick: toggle
+            }) : <div
               class={[
                 `${mergedClsPrefix}-upload`,
               ]}
