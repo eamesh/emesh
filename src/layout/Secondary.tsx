@@ -7,7 +7,7 @@ import { Sider as LayoutSider } from './components/sider';
 import $style from './style.module.scss';
 
 export default defineComponent({
-  name: 'Hidden',
+  name: 'Secondary',
 
   setup () {
     //

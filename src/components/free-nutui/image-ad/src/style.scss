@@ -1,0 +1,39 @@
+.image-ad {
+  width: 100%;
+
+  .nut-swiper-item {
+    line-height: 200px;
+  }
+
+  .nut-swiper-item img {
+    width: 100%;
+    height: 100%;
+  }
+}
+
+.image-ad-render {
+  .type-button {
+    .n-icon {
+      margin-top: 1px;
+      color: #979797;
+    }
+  }
+
+  .n-radio-button--checked {
+    .n-icon {
+      color: inherit;
+    }
+  }
+
+  .carousel-image-type {
+    .n-icon {
+      margin-top: 5px;
+    }
+  }
+}
+
+.carousel-container {
+  .carousel-add {
+    width: 100%;
+  }
+}

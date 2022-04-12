@@ -1,6 +1,6 @@
 import { userMenus } from '@/api/system/menu';
 import { RouteRecordRaw } from 'vue-router';
-import { SecondaryLayout, Layout, NormalLayout } from './constant';
+import { SecondaryLayout, Layout, NormalLayout, LightLayout } from './constant';
 import { renderIcon } from './icons';
 import { AppRouteRecordRaw } from './interface';
 import * as Ionicons5 from '@vicons/ionicons5';
@@ -18,6 +18,7 @@ const LayoutMap = new Map<string, () => Promise<any>>();
 LayoutMap.set('BASE', Layout);
 LayoutMap.set('NORMAL', NormalLayout);
 LayoutMap.set('SECONDARY', SecondaryLayout);
+LayoutMap.set('LIGHT', LightLayout);
 
 type IconsKeys = keyof typeof Icons
 
