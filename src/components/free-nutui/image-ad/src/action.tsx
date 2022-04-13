@@ -105,7 +105,7 @@ export const useAction = (props: any) => {
                   )
                 }}
               </NFormItem> */}
-              <NDivider style={{ marginTop: 0 }} />
+              {/* <NDivider style={{ marginTop: 0 }} /> */}
               <NThing>
                 {{
                   header: () => '添加图片',
