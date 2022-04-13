@@ -8,7 +8,13 @@ const NutuiSearchWidget: Widget<any> = {
   key: 'search',
   thumb: Thumb,
   component: markRaw(Search),
-  allowCount: 10
+  allowCount: 10,
+  data: {
+    text: '',
+    background: '#ffffff',
+    inputBackground: '#f7f7f7',
+    textColor: '#9f9f9f'
+  }
 };
 
 export default NutuiSearchWidget;

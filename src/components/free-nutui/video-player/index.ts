@@ -8,7 +8,28 @@ const NutuiVideoPlayerWidget: Widget<any> = {
   key: 'video-player',
   thumb: Thumb,
   component: markRaw(VideoPlayer),
-  allowCount: 10
+  allowCount: 10,
+  data: {
+    type: 'resource',
+    coverType: 'default',
+    radioType: 'square',
+    pagePadding: 0,
+    resource: {
+      src: '',
+      type: 'video/mp4'
+    },
+    network: {
+      src: '',
+      type: 'video/mp4'
+    },
+    options: {
+      controls: true,
+      poster: '',
+      autoplay: false,
+      muted: true,
+      loop: true
+    }
+  }
 };
 
 export default NutuiVideoPlayerWidget;

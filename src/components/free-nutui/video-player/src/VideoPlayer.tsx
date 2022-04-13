@@ -9,11 +9,47 @@ import { computed, defineComponent, ref, unref, watchEffect } from 'vue';
 import './style.scss';
 
 export interface NutuiVideoPlayerProps {
-  keyword: string;
+  type: 'resource' | 'network',
+  coverType: 'default' | 'resource',
+  radioType: 'square' | 'round',
+  pagePadding: number,
+  resource: {
+    src: string,
+    type: string
+  },
+  network: {
+    src: string,
+    type: string
+  },
+  options: {
+    controls: boolean,
+    poster: string,
+    autoplay: boolean,
+    muted: boolean,
+    loop: boolean
+  }
 }
 
 const nutuiVideoPlayerProps = widgetDataProps<NutuiVideoPlayerProps>({
-  keyword: ''
+  type: 'resource',
+  coverType: 'default',
+  radioType: 'square',
+  pagePadding: 0,
+  resource: {
+    src: '',
+    type: 'video/mp4'
+  },
+  network: {
+    src: '',
+    type: 'video/mp4'
+  },
+  options: {
+    controls: true,
+    poster: '',
+    autoplay: false,
+    muted: true,
+    loop: true
+  }
 });
 
 export default defineComponent({

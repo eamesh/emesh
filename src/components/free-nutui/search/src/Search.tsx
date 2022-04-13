@@ -5,11 +5,17 @@ import { CSSProperties, defineComponent, ref, unref } from 'vue';
 import './style.scss';
 
 export interface NutuiSearchProps {
-  keyword: string;
+  text: string,
+  background: string,
+  inputBackground: string,
+  textColor: string
 }
 
 const nutuiSearchProps = widgetDataProps<NutuiSearchProps>({
-  keyword: ''
+  text: '',
+  background: '#ffffff',
+  inputBackground: '#f7f7f7',
+  textColor: '#9f9f9f'
 });
 
 export default defineComponent({
@@ -17,14 +23,8 @@ export default defineComponent({
 
   props: nutuiSearchProps,
 
-  setup () {
-    const model = ref({
-      text: '',
-      keyword: '',
-      background: '#ffffff',
-      inputBackground: '#f7f7f7',
-      textColor: '#9f9f9f'
-    });
+  setup (props) {
+    const model = ref(props.data);
     const modelUnref = unref(model);
 
     function renderAction () {
@@ -82,7 +82,7 @@ export default defineComponent({
       } as CSSProperties}>
         {
           this.model.text ? (
-            <nut-searchbar background={this.model.background} inputBackground={this.model.inputBackground} v-model={this.model.keyword}>
+            <nut-searchbar background={this.model.background} inputBackground={this.model.inputBackground}>
               {{
                 rightout: () => this.model.text,
                 leftin: () => {
@@ -91,7 +91,7 @@ export default defineComponent({
               }}
             </nut-searchbar>
           ) : (
-            <nut-searchbar background={this.model.background} inputBackground={this.model.inputBackground} v-model={this.model.keyword}>
+            <nut-searchbar background={this.model.background} inputBackground={this.model.inputBackground}>
               {{
                 leftin: () => {
                   return <nut-icon color={this.model.textColor} size="14" name="search2"></nut-icon>;

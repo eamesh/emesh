@@ -1,14 +1,14 @@
-import { defineComponent } from 'vue';
+import { defineComponent, onMounted, ref } from 'vue';
 import { MenuOption, NButton, NLayout, NLayoutHeader, NLayoutSider, NMenu, NSpace } from 'naive-ui';
 import { FreeLayout, Free } from 'free-core';
-import { AsideGroup } from 'free-core/lib/types/core/src/interface';
+import { AsideGroup, PageDataSchemas } from 'free-core/lib/types/core/src/interface';
 import NutuiImageAdWidget from '@/components/free-nutui/image-ad';
 import NutuiImageNavWidget from '@/components/free-nutui/image-nav';
 import NutuiSearchWidget from '@/components/free-nutui/search';
 import NutuiNoticeBarhWidget from '@/components/free-nutui/notice-bar';
 import NutuiVideoPlayerWidget from '@/components/free-nutui/video-player';
-import NutuiNavigationWidget from '@/components/free-nutui/navigation';
-import NutuiGoodsCardWidget from '@/components/free-nutui/goods-card';
+// import NutuiNavigationWidget from '@/components/free-nutui/navigation';
+// import NutuiGoodsCardWidget from '@/components/free-nutui/goods-card';
 
 import './style.scss';
 
@@ -17,19 +17,19 @@ const asideGroups: AsideGroup[] = [
     title: '基础组件',
     key: 'base',
     children: [
-      NutuiImageAdWidget,
-      NutuiImageNavWidget,
       NutuiSearchWidget,
       NutuiNoticeBarhWidget,
+      NutuiImageAdWidget,
+      NutuiImageNavWidget,
       NutuiVideoPlayerWidget,
-      NutuiNavigationWidget
+      // NutuiNavigationWidget
     ]
   },
   {
     title: '营销组件',
     key: 'func',
     children: [
-      NutuiGoodsCardWidget
+      // NutuiGoodsCardWidget
     ]
   }
 ];
@@ -40,6 +40,7 @@ export default defineComponent({
   name: 'Diy',
 
   setup () {
+    const freeLayRef = ref();
 
     const menus: MenuOption[] = [
       {
@@ -48,8 +49,21 @@ export default defineComponent({
       }
     ];
 
+    onMounted(() => {
+      const pageData: PageDataSchemas = {
+        page: [
+          {
+            id: 1,
+            ...NutuiSearchWidget,
+          }
+        ],
+      };
+      freeLayRef.value.setPageData(pageData);
+    });
+
     return {
-      menus
+      menus,
+      freeLayRef
     };
   },
 
@@ -78,7 +92,7 @@ export default defineComponent({
             </NMenu>
           </NLayoutSider>
           <NLayout>
-            <FreeLayout asideGroup />
+            <FreeLayout asideGroup ref="freeLayRef" />
           </NLayout>
         </NLayout>
       </NLayout>
