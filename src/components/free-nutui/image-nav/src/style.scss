@@ -17,8 +17,12 @@
     }
   }
 
-  .nav-upload,
-  .n-upload-trigger.n-upload-trigger--image-card {
+  .n-upload-file-list.n-upload-file-list--grid {
+    grid-template-columns: repeat(auto-fill, 58px);
+  }
+
+  .n-upload-trigger.n-upload-trigger--image-card,
+  .n-upload-file-list .n-upload-file.n-upload-file--image-card-type {
     width: 58px;
     height: 58px;
   }

@@ -16,7 +16,7 @@ export interface ImageNavStyle {
 
 export interface ImageNavItem {
   title: string;
-  thumb?: string;
+  imgUrl?: string;
   redirect: any;
 }
 
@@ -46,22 +46,22 @@ const nutuiImageNavProps = widgetDataProps<NutuiImageNavProps>({
   navs: [
     {
       title: '导航一',
-      thumb: '',
+      imgUrl: '',
       redirect: {}
     },
     {
       title: '导航二',
-      thumb: '',
+      imgUrl: '',
       redirect: {}
     },
     {
       title: '导航三',
-      thumb: '',
+      imgUrl: '',
       redirect: {}
     },
     {
       title: '导航四',
-      thumb: '',
+      imgUrl: '',
       redirect: {}
     }
   ]
@@ -99,7 +99,7 @@ export default defineComponent({
           {
             model.type === 'image'
               ? model.navs.map(item => (
-              <nut-grid-item style={model.style} icon={item.thumb} iconSize={20} text={item.title}></nut-grid-item>
+              <nut-grid-item style={model.style} icon={item.imgUrl || 'dongdong'} iconSize={20} text={item.title}></nut-grid-item>
               ))
               : model.navs.map(item => (
                   <nut-grid-item style={model.style}>

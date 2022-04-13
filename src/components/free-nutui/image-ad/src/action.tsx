@@ -21,8 +21,8 @@ export const useAction = (props: any) => {
           id: index.toString(),
           name: '',
           status: 'finished',
-          url: item.img_url,
-          thumbnailUrl: item.img_url
+          url: item.imgUrl,
+          thumbnailUrl: item.imgUrl
         };
       }) as FileInfo[];
     },
@@ -34,7 +34,7 @@ export const useAction = (props: any) => {
   function handleAddImage (files: FileInfo[]) {
     files.forEach(item => {
       modelUnref.ads.push({
-        img_url: item.thumbnailUrl as string,
+        imgUrl: item.thumbnailUrl as string,
         redirect: {}
       });
     });

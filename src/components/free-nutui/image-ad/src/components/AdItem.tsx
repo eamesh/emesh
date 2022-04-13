@@ -10,7 +10,7 @@ const adItemProps = {
   data: {
     type: Object as PropType<AdItemData>,
     default: () => ({
-      img_url: '',
+      imgUrl: '',
       redirect: {}
     })
   }
@@ -25,25 +25,25 @@ export default defineComponent({
 
   setup (props, { emit }) {
     const model = ref<AdItemData>(props.data);
-    const modeulUnref = unref(model);
+    const modelUnref = unref(model);
     const hoverState = ref(false);
 
     const fileListCompute = computed<FileInfo[]>({
       get () {
-        return modeulUnref.img_url ? [
+        return modelUnref.imgUrl ? [
           {
             id: props.index?.toString() as string,
             name: '',
             status: 'finished',
-            url: modeulUnref.img_url,
-            thumbnailUrl: modeulUnref.img_url
+            url: modelUnref.imgUrl,
+            thumbnailUrl: modelUnref.imgUrl
           }
         ] : [];
       },
 
       set (files) {
         console.log(files);
-        modeulUnref.img_url = files.length === 0 ? '' : files[0].thumbnailUrl! || files[0].url!;
+        modelUnref.imgUrl = files.length === 0 ? '' : files[0].thumbnailUrl! || files[0].url!;
       }
     });
 

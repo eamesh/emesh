@@ -33,6 +33,10 @@
 }
 
 .image-ad-card {
+  .n-upload-file-list.n-upload-file-list--grid {
+    grid-template-columns: repeat(auto-fill, 46px);
+  }
+
   .n-upload-trigger.n-upload-trigger--image-card,
   .n-upload-file-list .n-upload-file.n-upload-file--image-card-type {
     width: 46px;

@@ -17,7 +17,7 @@ export const useAction = (props: any) => {
   function handleAddNav () {
     modelUnref.navs.push({
       title: '',
-      thumb: 'dongdong',
+      imgUrl: 'dongdong',
       redirect: {}
     });
   }
@@ -27,7 +27,7 @@ export const useAction = (props: any) => {
       <>
         <FreeActionTitle title='图片导航' />
         <div class='image-nav-render'>
-          <NForm>
+          <NForm v-model={model}>
             <div class='free-action-render'>
               <NText depth={3}>最多添加 {modelUnref.max} 个导航，拖动选中的导航可对其排序</NText>
             </div>
@@ -53,7 +53,7 @@ export const useAction = (props: any) => {
               }
             </NSpace>
             <div class='free-action-form free-action-render'>
-              <NDivider />
+              <NDivider style={{marginTop: 0}} />
               <NFormItem label='内容翻转' labelPlacement='left'>
                 <NSpace align='center' justify='space-between' style={{ width: '100%' }}>
                   <NText class='action-item-label' strong style={{ marginBottom: 0 }}></NText>

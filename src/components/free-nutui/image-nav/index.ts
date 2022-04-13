@@ -24,22 +24,22 @@ const NutuiImageNavWidget: Widget<NutuiImageNavProps> = {
     navs: [
       {
         title: '导航一',
-        thumb: 'dongdong',
+        imgUrl: '',
         redirect: {}
       },
       {
         title: '导航二',
-        thumb: 'dongdong',
+        imgUrl: '',
         redirect: {}
       },
       {
         title: '导航三',
-        thumb: 'dongdong',
+        imgUrl: '',
         redirect: {}
       },
       {
         title: '导航四',
-        thumb: 'dongdong',
+        imgUrl: '',
         redirect: {}
       }
     ]

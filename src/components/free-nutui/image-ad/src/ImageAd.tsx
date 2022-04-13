@@ -6,7 +6,7 @@ import { useAction } from './action';
 import './style.scss';
 
 export interface AdItemData {
-  img_url: string;
+  imgUrl: string;
   redirect: object;
 }
 
@@ -68,7 +68,7 @@ export default defineComponent({
                   paddingLeft: `${model.pagePadding}px`,
                   paddingRight: `${model.pagePadding}px`,
                 }}>
-                  <img src={ad.img_url} style={{
+                  <img src={ad.imgUrl} style={{
                     borderRadius: model.radioType === 'round' ? '10px' : 0
                   }} />
                 </nut-swiper-item>

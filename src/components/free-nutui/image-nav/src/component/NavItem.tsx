@@ -1,13 +1,18 @@
-import { NButton, NCard, NDropdown, NIcon, NInput, NSpace, NText, NUpload } from 'naive-ui';
-import { defineComponent, PropType, ref, watch } from 'vue';
+import { NButton, NCard, NDropdown, NIcon, NInput, NSpace, NText } from 'naive-ui';
+import { computed, defineComponent, PropType, ref, unref, watch } from 'vue';
 import { ChevronDown20Regular, ChevronUp20Regular } from '@vicons/fluent';
 import { ImageNavType } from '../ImageNav';
+import { UploadImageMain } from '@/components/upload';
+import { FileInfo } from 'naive-ui/lib/upload/src/interface';
 
 export interface NavItemData {
   title: string;
+  imgUrl?: string;
+  redirect: object;
 }
 
 const navItemProps = {
+  index: Number,
   type: String as PropType<ImageNavType>,
   data: {
     type: Object as PropType<NavItemData>,
@@ -24,6 +29,7 @@ export default defineComponent({
 
   setup (props, { emit }) {
     const model = ref(props.data);
+    const modelUnref = unref(model);
     const hoverState = ref(false);
 
     const dropdownOptions = ref([
@@ -65,6 +71,25 @@ export default defineComponent({
       }
     ]);
 
+    const fileListCompute = computed<FileInfo[]>({
+      get () {
+        return modelUnref.imgUrl ? [
+          {
+            id: props.index?.toString() as string,
+            name: '',
+            status: 'finished',
+            url: modelUnref.imgUrl,
+            thumbnailUrl: modelUnref.imgUrl
+          }
+        ] : [];
+      },
+
+      set (files) {
+        console.log(files);
+        modelUnref.imgUrl = files.length === 0 ? '' : files[0].thumbnailUrl! || files[0].url!;
+      }
+    });
+
     watch(
       () => model.value,
       () => {
@@ -75,7 +100,8 @@ export default defineComponent({
     return {
       model,
       hoverState,
-      dropdownOptions
+      dropdownOptions,
+      fileListCompute
     };
   },
 
@@ -91,7 +117,7 @@ export default defineComponent({
       <NCard size='small'>
         <NSpace>
           {
-            type === 'image' ? <NUpload class='nav-upload' max={1} listType='image-card' /> : null
+            type === 'image' ? <UploadImageMain max={1} v-model:fileList={this.fileListCompute} /> : null
           }
           <NSpace vertical>
             <NSpace align='center'>
