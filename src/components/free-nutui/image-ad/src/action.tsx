@@ -184,8 +184,8 @@ export const useAction = (props: any) => {
               </NFormItem>
               <NFormItem label='页面边距' labelPlacement='left'>
                 <NSpace align='center' justify='space-between' class='carousel-image-type' style={{ width: '100%' }}>
-                  <NSlider min={0} style={{ width: '160px' }} v-model:value={modelUnref.pagePadding} />
-                  <NInputNumber style={{ width: '80px' }} placeholder={''} v-model:value={modelUnref.pagePadding} />
+                  <NSlider min={0} style={{ width: '160px' }} max={30} v-model:value={modelUnref.pagePadding} />
+                  <NInputNumber style={{ width: '80px' }} max={30} min={0} placeholder={''} v-model:value={modelUnref.pagePadding} />
                 </NSpace>
               </NFormItem>
               {/* <NFormItem label='图片间距' labelPlacement='left'>
