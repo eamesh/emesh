@@ -1,7 +1,7 @@
 import { FreeActionTitle } from 'free-core';
 import { NButton, NDivider, NForm, NFormItem, NIcon, NInputNumber, NRadioButton, NRadioGroup, NSlider, NSpace, NText, NThing } from 'naive-ui';
 import { computed, ref, unref } from 'vue';
-import { Add16Regular, AppRecent20Regular, Copy20Regular, BorderOutside24Regular, Circle24Regular } from '@vicons/fluent';
+import { Add16Regular, BorderOutside24Regular, Circle24Regular } from '@vicons/fluent';
 import { UploadImageMain } from '@/components/upload';
 import AdItem from './components/AdItem';
 import { AdItemData, NutuiImageAdProps } from './ImageAd';
@@ -47,7 +47,7 @@ export const useAction = (props: any) => {
         <div class='image-ad-render'>
           <NForm>
             <div class='free-action-render'>
-              <NFormItem label='选择模板'>
+              {/* <NFormItem label='选择模板'>
                 {{
                   label: () => (
                     <NSpace>
@@ -104,15 +104,15 @@ export const useAction = (props: any) => {
                     </>
                   )
                 }}
-              </NFormItem>
+              </NFormItem> */}
               <NDivider style={{ marginTop: 0 }} />
               <NThing>
                 {{
                   header: () => '添加图片',
                   description: () => (
                     <NSpace vertical>
-                      <NText>支持长按识别企微/个人二维码，不配置跳转链接时生效。小程序版本更新后支持(微商城v2.81.4，零售v3.34.5)</NText>
-                      <NText depth={3}>最多添加 10 个广告，鼠标拖拽调整广告顺序，建议宽度750像素</NText>
+                      <NText>支持长按识别企微/个人二维码，不配置跳转链接时生效。小程序版本更新后支持</NText>
+                      <NText depth={3}>最多添加 10 个广告，鼠标拖拽调整广告顺序，建议尺寸750x350像素</NText>
                     </NSpace>
                   )
                 }}
@@ -148,7 +148,7 @@ export const useAction = (props: any) => {
 
             <div class='free-action-form free-action-render'>
               <NDivider />
-              <NFormItem label='图片样式' labelPlacement='left'>
+              {/* <NFormItem label='图片样式' labelPlacement='left'>
                 <NSpace align='center' justify='space-between' class='carousel-image-type' style={{ width: '100%' }}>
                   <NText class='action-item-label' strong style={{ marginBottom: 0 }}>{ modelUnref.imageType === 'regular' ? '常规' : '投影' }</NText>
                   <NRadioGroup size='small' v-model:value={modelUnref.imageType}>
@@ -164,7 +164,7 @@ export const useAction = (props: any) => {
                     </NRadioButton>
                   </NRadioGroup>
                 </NSpace>
-              </NFormItem>
+              </NFormItem> */}
               <NFormItem label='图片倒角' labelPlacement='left'>
                 <NSpace align='center' justify='space-between' class='carousel-image-type' style={{ width: '100%' }}>
                   <NText class='action-item-label' strong style={{ marginBottom: 0 }}>{ modelUnref.radioType === 'square' ? '直角' : '圆角' }</NText>
@@ -188,12 +188,12 @@ export const useAction = (props: any) => {
                   <NInputNumber style={{ width: '80px' }} placeholder={''} v-model:value={modelUnref.pagePadding} />
                 </NSpace>
               </NFormItem>
-              <NFormItem label='页面边距' labelPlacement='left'>
+              {/* <NFormItem label='图片间距' labelPlacement='left'>
                 <NSpace align='center' justify='space-between' class='carousel-image-type' style={{ width: '100%' }}>
                   <NSlider min={0} style={{ width: '160px' }} v-model:value={modelUnref.imagePadding} />
                   <NInputNumber style={{ width: '80px' }} placeholder={''} v-model:value={modelUnref.imagePadding} />
                 </NSpace>
-              </NFormItem>
+              </NFormItem> */}
             </div>
           </NForm>
         </div>

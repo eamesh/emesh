@@ -46,21 +46,46 @@ export default defineComponent({
   },
 
   render () {
+    const {
+      model
+    } = this;
+
     return (
       <div class='image-ad'>
-        <nut-swiper width={375} height={200} initPage={0} paginationVisible={true} paginationColor="#426543" autoPlay="3000">
-          <nut-swiper-item>
-            <img src={Ad} alt="" />
-          </nut-swiper-item>
-          <nut-swiper-item>
-            <img src={Ad} alt="" />
-          </nut-swiper-item>
-          <nut-swiper-item>
-            <img src={Ad} alt="" />
-          </nut-swiper-item>
-          <nut-swiper-item>
-            <img src={Ad} alt="" />
-          </nut-swiper-item>
+        <nut-swiper
+          width={375}
+          height={200}
+          initPage={0}
+          paginationVisible={true}
+          paginationColor="#426543"
+          autoPlay="3000"
+
+        >
+          {
+            model.ads.length ? model.ads.map(ad => {
+              return (
+                <nut-swiper-item style={{
+                  paddingLeft: `${model.pagePadding}px`,
+                  paddingRight: `${model.pagePadding}px`,
+                }}>
+                  <img src={ad.img_url} style={{
+                    borderRadius: model.radioType === 'round' ? '10px' : 0
+                  }} />
+                </nut-swiper-item>
+              );
+            }) : [...Array(3)].map(() => {
+              return (
+                <nut-swiper-item style={{
+                  paddingLeft: `${model.pagePadding}px`,
+                  paddingRight: `${model.pagePadding}px`,
+                }}>
+                  <img src={Ad} alt="" style={{
+                    borderRadius: model.radioType === 'round' ? '10px' : 0
+                  }} />
+                </nut-swiper-item>
+              );
+            })
+          }
         </nut-swiper>
       </div>
     );
