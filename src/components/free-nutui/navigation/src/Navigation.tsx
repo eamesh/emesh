@@ -27,7 +27,7 @@ export default defineComponent({
         <>
           <FreeActionTitle title='电梯导航' />
           <div class='free-action-form'>
-            <NText>功能待完善</NText>
+            <NText>开发中</NText>
           </div>
         </>
       );
