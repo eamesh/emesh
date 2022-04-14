@@ -89,6 +89,7 @@ export default defineComponent({
         <NSpace vertical size={[0, 16]}>
           <StoreTabs defaultValue='draft' />
           <NSpace>
+
             <RouterButton target='_blank' type='primary' to='/diy'>
               新建微页面
             </RouterButton>
