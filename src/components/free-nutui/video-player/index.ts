@@ -8,7 +8,7 @@ const NutuiVideoPlayerWidget: Widget<any> = {
   key: 'video-player',
   thumb: Thumb,
   component: markRaw(VideoPlayer),
-  allowCount: 10,
+  allowCount: 50,
   data: {
     type: 'resource',
     coverType: 'default',

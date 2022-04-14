@@ -8,7 +8,7 @@ const NutuiNoticeBarWidget: Widget<any> = {
   key: 'notice-bar',
   thumb: Thumb,
   component: markRaw(NoticeBar),
-  allowCount: 10,
+  allowCount: 20,
   data: {
     title: '',
     color: '#D9500B',

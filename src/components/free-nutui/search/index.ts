@@ -8,7 +8,7 @@ const NutuiSearchWidget: Widget<NutuiSearchProps> = {
   key: 'search',
   thumb: Thumb,
   component: markRaw(Search),
-  allowCount: 10,
+  allowCount: 2,
   data: {
     text: '',
     scan: false,

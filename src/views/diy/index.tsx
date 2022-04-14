@@ -1,6 +1,6 @@
 import { defineComponent, onMounted, ref } from 'vue';
 import { MenuOption, NButton, NLayout, NLayoutHeader, NLayoutSider, NMenu, NSpace } from 'naive-ui';
-import { FreeLayout, Free } from 'free-core';
+import { FreeLayout, Free, FreeTitleTextWidget, FreeWhiteHeightWidget } from 'free-core';
 import { AsideGroup, PageDataSchemas } from 'free-core/lib/types/core/src/interface';
 import NutuiImageAdWidget from '@/components/free-nutui/image-ad';
 import NutuiImageNavWidget from '@/components/free-nutui/image-nav';
@@ -17,6 +17,8 @@ const asideGroups: AsideGroup[] = [
     title: '基础组件',
     key: 'base',
     children: [
+      FreeTitleTextWidget,
+      FreeWhiteHeightWidget,
       NutuiSearchWidget,
       NutuiNoticeBarhWidget,
       NutuiImageAdWidget,
@@ -55,6 +57,16 @@ export default defineComponent({
           {
             id: 1,
             ...NutuiSearchWidget,
+          },
+          {
+            id: 2,
+            ...FreeWhiteHeightWidget,
+            data: {
+              ...FreeWhiteHeightWidget.data,
+              empty: {
+                height: 8
+              }
+            }
           }
         ],
       };
