@@ -20,5 +20,12 @@
         }
       }
     }
+
+    .store-section {
+      &__title {
+        width: 130px;
+        text-align: right;
+      }
+    }
   }
 }

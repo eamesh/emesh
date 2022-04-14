@@ -29,7 +29,7 @@ export default defineComponent({
               <NCard class='title-card' embedded bordered={false} size='small'>
                 {{
                   header: () => {
-                    return <NText class='text-xs'>{title}</NText>;
+                    return <NText class='text-sm'>{title}</NText>;
                   },
                 }}
               </NCard>
