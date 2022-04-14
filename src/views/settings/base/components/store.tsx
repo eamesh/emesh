@@ -58,13 +58,13 @@ export default defineComponent({
                                     <NTimePicker /> 至 <NTimePicker />
                                   </NSpace>
                                 </FormItem>
-                                <NButton quaternary tag='a' text type='primary'>添加时间</NButton>
+                                <NButton tag='a' text type='primary'>添加时间</NButton>
                               </NSpace>
                             </NSpace>
                             <NSpace vertical>
                               <NRadio>每周重复</NRadio>
                               <NSpace vertical class='pl-6'>
-                                <NButton quaternary tag='a' text type='primary'>添加星期</NButton>
+                                <NButton tag='a' text type='primary'>添加星期</NButton>
                               </NSpace>
                             </NSpace>
                           </NSpace>
