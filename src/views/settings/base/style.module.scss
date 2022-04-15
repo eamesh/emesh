@@ -1,5 +1,11 @@
 .setting-form {
+  padding-bottom: 60px;
+
   :global {
+    .setting-footer {
+      height: 60px;
+    }
+
     .title-card {
       .n-card-header {
         padding: 0 10px;

@@ -4,7 +4,7 @@ import GoodsForm from './components/goods';
 import StoreForm from './components/store';
 import PaymentForm from './components/payment';
 import OrderForm from './components/order';
-import { cB, commonLight, NSpace } from 'naive-ui';
+import { cB, commonLight, NButton, NLayoutFooter, NSpace } from 'naive-ui';
 
 import $style from './style.module.scss';
 import { createTheme, useTheme } from 'naive-ui/lib/_mixins';
@@ -65,13 +65,25 @@ export default defineComponent({
       handleSetFormRefs
     } = this;
     return (
-      <SpaceView class={$style['setting-form']} style={cssVarsRef}>
-        <NSpace vertical>
-          {formComponents.map(component => {
-            return <component ref={(e: any) => handleSetFormRefs(component.name, e)} />;
-          })}
-        </NSpace>
-      </SpaceView>
+      <div class={$style['setting-form']}>
+        <SpaceView style={cssVarsRef}>
+          <NSpace vertical>
+            {formComponents.map(component => {
+              return <component ref={(e: any) => handleSetFormRefs(component.name, e)} />;
+            })}
+          </NSpace>
+          <NLayoutFooter
+            position="absolute"
+            bordered
+          >
+            <div class="setting-footer flex justify-center items-center">
+              <NSpace justify="space-around" size="large">
+                <NButton type="success" >保存</NButton>
+              </NSpace>
+            </div>
+          </NLayoutFooter>
+        </SpaceView>
+      </div>
     );
   }
 });

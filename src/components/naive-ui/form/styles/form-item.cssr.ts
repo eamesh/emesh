@@ -131,7 +131,6 @@ export default cB('form-item', {
     cB('form-item-help', `
       font-size: 10px;
       line-height: 1.8;
-      margin-top: 6px;
       margin-bottom: calc(var(--n-feedback-height) / 2);
     `),
   ])
