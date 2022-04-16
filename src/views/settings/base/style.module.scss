@@ -6,27 +6,6 @@
       height: 60px;
     }
 
-    .title-card {
-      .n-card-header {
-        padding: 0 10px;
-      }
-
-      .n-card-header__main span {
-        position: relative;
-        padding: 0 10px;
-
-        &::before {
-          position: absolute;
-          content: " ";
-          width: 3px;
-          height: 100%;
-          left: 0;
-          top: 0;
-          background-color: var(--primary-color);
-        }
-      }
-    }
-
     .store-section {
       &__title {
         width: 130px;

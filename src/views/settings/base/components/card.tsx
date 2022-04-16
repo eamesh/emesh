@@ -1,5 +1,6 @@
-import { defineComponent } from 'vue';
-import { NCard, NText } from 'naive-ui';
+import { computed, defineComponent } from 'vue';
+import { cB, commonLight, NCard, NText } from 'naive-ui';
+import { createTheme, useTheme } from 'naive-ui/lib/_mixins';
 
 export default defineComponent({
   name: 'FormCard',
@@ -12,17 +13,42 @@ export default defineComponent({
   },
 
   setup () {
-    //
+    const themeRef = useTheme(
+      'Card',
+      '-form-card',
+      cB('card', ''),
+      createTheme({
+        name: 'FormCard',
+        common: commonLight,
+      }),
+      {},
+    );
+
+    const cssVarsRef = computed(() => {
+      const {
+        common: {
+          primaryColor,
+        }
+      } = themeRef.value;
+      return {
+        '--primary-color': primaryColor,
+      };
+    });
+
+    return {
+      cssVarsRef
+    };
   },
 
   render () {
     const {
       title,
-      $slots
+      $slots,
+      cssVarsRef
     } = this;
 
     return (
-      <NCard size="small" title={title}>
+      <NCard size="small" title={title} style={cssVarsRef}>
         {{
           header: () => {
             return (
