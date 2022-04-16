@@ -38,7 +38,9 @@ export default defineComponent({
     } = this;
 
     return (
-      <RouterLink to={to!} custom class='router-button'>
+      <RouterLink to={{
+        path: to as string
+      }} custom>
         {{
           default: ({ href, navigate }: any) => {
             return (
