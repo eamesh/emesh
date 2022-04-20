@@ -1,20 +1,35 @@
 import { RouterButton } from '@/components/router-button';
 import { SpaceView } from '@/components/space-view';
-import { DataTableColumn, MenuOption, NA, NButton, NCard, NDataTable, NDivider, NForm, NFormItem, NInput, NSelect, NSpace } from 'naive-ui';
-import { defineComponent, h } from 'vue';
-import { RouterLink } from 'vue-router';
+import { DataTableColumn, MenuOption, NA, NButton, NCard, NDataTable, NDivider, NForm, NFormItem, NInput, NSelect, NSpace, NTag } from 'naive-ui';
+import { defineComponent, h, ref } from 'vue';
 import StoreTabs from './Tabs';
+import { getLists } from '@/api/decorate/decorate';
 
 export default defineComponent({
-  name: 'StoreIndex',
+  name: 'StorePage',
 
   setup () {
+    const pageLists = ref<any>({});
+    const loading = ref(false);
     const menuOptions: MenuOption[] = [
       {
         label: '微页面',
         key: 'page',
       }
     ];
+
+    async function handleGetPageLists () {
+      loading.value = true;
+      try {
+        pageLists.value = await getLists();
+        console.log(pageLists.value);
+      } catch (error) {
+        console.log(error);
+      }
+      loading.value = false;
+    }
+
+    handleGetPageLists();
 
     const columns: DataTableColumn[] = [
       {
@@ -27,36 +42,39 @@ export default defineComponent({
       {
         title: '发布状态',
         key: 'status',
+        render (row) {
+          return h(NTag, {
+            type: row.status ? 'success' : 'info'
+          }, {
+            default: () => row.status ? '已发布' : '未发布'
+          });
+        }
       },
       {
         title: '创建时间',
         key: 'created_at',
       },
-      {
-        title: '商品数',
-        key: 'count',
-      },
+      // {
+      //   title: '商品数',
+      //   key: 'count',
+      // },
       {
         title: '访客数/浏览量',
         key: 'views',
       },
-      {
-        title: '商品访客数/商品浏览量',
-        key: 'goods_views',
-      },
+      // {
+      //   title: '商品访客数/商品浏览量',
+      //   key: 'goods_views',
+      // },
       {
         title: '操作',
         key: 'action',
         width: '120px',
-        render (row: any) {
+        render () {
           return h(NSpace, {}, {
             default: () => [
-              h(RouterLink, {
-                to: `/mall/goods/${row.id}/edit`
-              }, {
-                default: () => h(NA, {}, {
-                  default: () => '编辑'
-                })
+              h(NA, {}, {
+                default: () => '编辑'
               }),
               h(NDivider, {
                 vertical: true,
@@ -75,13 +93,15 @@ export default defineComponent({
 
     return {
       columns,
+      pageLists,
       menuOptions
     };
   },
 
   render () {
     const {
-      columns
+      columns,
+      pageLists
     } = this;
 
     return (
@@ -127,7 +147,7 @@ export default defineComponent({
             </NForm>
           </NCard>
 
-          <NDataTable columns={columns}></NDataTable>
+          <NDataTable rowKey={row => row.id} data={pageLists.data} columns={columns}></NDataTable>
         </NSpace>
       </SpaceView>
     );
