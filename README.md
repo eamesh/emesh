@@ -13,6 +13,10 @@ api部分是目前是私有项目, 基础功能开发完会开源
 
 ## Feature
 
+- 微页面
+ - [x] 微页面列表
+ - [x] 微页面添加
+ - [x] 微页面修改
 - 店铺管理
   - [x] 微页面(ui 完成) [free-nutui](https://github.com/eamesh/free-nutui)
 - 商品管理
