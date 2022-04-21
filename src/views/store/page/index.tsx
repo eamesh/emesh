@@ -4,6 +4,7 @@ import { DataTableColumn, MenuOption, NA, NButton, NCard, NDataTable, NDivider, 
 import { defineComponent, h, ref } from 'vue';
 import StoreTabs from './Tabs';
 import { getLists } from '@/api/decorate/decorate';
+import { RouterLink } from 'vue-router';
 
 export default defineComponent({
   name: 'StorePage',
@@ -70,11 +71,19 @@ export default defineComponent({
         title: '操作',
         key: 'action',
         width: '120px',
-        render () {
+        render (row: any) {
           return h(NSpace, {}, {
             default: () => [
-              h(NA, {}, {
-                default: () => '编辑'
+              h(RouterLink, {
+                custom: true,
+                to: `/diy/decorate/${row.id}`
+              }, {
+                default: ({ href, navigate }: any) => h(NA, {
+                  href,
+                  onClick: navigate
+                }, {
+                  default: () => '编辑'
+                })
               }),
               h(NDivider, {
                 vertical: true,

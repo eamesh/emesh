@@ -73,6 +73,7 @@ export default defineComponent({
 
     const fileListCompute = computed<FileInfo[]>({
       get () {
+        console.log(modelUnref.imgUrl);
         return modelUnref.imgUrl ? [
           {
             id: props.index?.toString() as string,

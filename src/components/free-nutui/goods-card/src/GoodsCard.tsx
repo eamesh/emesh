@@ -4,18 +4,18 @@ import { defineComponent, ref } from 'vue';
 
 import './style.scss';
 
-export interface NutuiSearchProps {
+export interface NutuiGoodsCardProps {
   title: string;
 }
 
-const nutuiSearchProps = widgetDataProps<NutuiSearchProps>({
+const nutuiGoodsCardProps = widgetDataProps<NutuiGoodsCardProps>({
   title: ''
 });
 
 export default defineComponent({
   name: 'GoodsCard',
 
-  props: nutuiSearchProps,
+  props: nutuiGoodsCardProps,
 
   setup () {
     const model = ref({

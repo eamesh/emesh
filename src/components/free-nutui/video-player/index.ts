@@ -1,9 +1,9 @@
 import { Widget } from 'free-core/lib/types/core/src/interface';
-import VideoPlayer from './src/VideoPlayer';
+import VideoPlayer, { NutuiVideoPlayerProps } from './src/VideoPlayer';
 import Thumb from './assets/thumb.png';
 import { markRaw } from 'vue';
 
-const NutuiVideoPlayerWidget: Widget<any> = {
+const NutuiVideoPlayerWidget: Widget<NutuiVideoPlayerProps> = {
   name: '视频播放器',
   key: 'video-player',
   thumb: Thumb,
