@@ -36,6 +36,22 @@ jobs:
 
     - run: pnpm install
     - run: pnpm build:gh-pages
+
+    - name: Set Script
+      run: |
+        script='i\
+        <script>\
+        var _hmt = _hmt || []; \
+        (function() {\
+          var hm = document.createElement(\"script\"); \
+          hm.src = \"https://hm.baidu.com/hm.js?9c778fcbbe17264bf9be0deb42e4533a\"; \
+          var s = document.getElementsByTagName(\"script\")[0]; \
+          s.parentNode.insertBefore(hm, s); \
+        })(); \
+        </script>
+        '
+        sed -i "/<\/body>/ $script" ./dist/index.html
+
     - name: Commit gh-pages
       run: |
         cd $BUILD_PATH
