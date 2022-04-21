@@ -130,7 +130,7 @@ export default defineComponent({
         isEdit.value ? await updateDecorate(id.value, data) : await createDecorate(data);
         message.success('提交成功');
         router.replace({
-          path: '/store/page'
+          path: '/mall/page'
         });
       } catch (error) {
         console.log(error);
