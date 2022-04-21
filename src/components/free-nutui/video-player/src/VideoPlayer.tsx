@@ -57,28 +57,8 @@ export default defineComponent({
 
   props: nutuiVideoPlayerProps,
 
-  setup () {
-    const model = ref({
-      type: 'resource',
-      coverType: 'default',
-      radioType: 'square',
-      pagePadding: 0,
-      resource: {
-        src: '',
-        type: 'video/mp4'
-      },
-      network: {
-        src: '',
-        type: 'video/mp4'
-      },
-      options: {
-        controls: true,
-        poster: '',
-        autoplay: false,
-        muted: true,
-        loop: true
-      }
-    });
+  setup (props) {
+    const model = ref(props.data);
     const modelUnref = unref(model);
     const videoRef = ref();
     const playRef = ref(false);
