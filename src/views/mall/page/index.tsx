@@ -1,10 +1,11 @@
 import { RouterButton } from '@/components/router-button';
 import { SpaceView } from '@/components/space-view';
-import { DataTableColumn, MenuOption, NA, NButton, NCard, NDataTable, NDivider, NForm, NFormItem, NInput, NSelect, NSpace, NTag } from 'naive-ui';
+import { DataTableColumn, MenuOption, NA, NButton, NCard, NDataTable, NDivider, NForm, NFormItem, NIcon, NInput, NSelect, NSpace, NTag, useMessage } from 'naive-ui';
 import { defineComponent, h, ref } from 'vue';
 import StoreTabs from './Tabs';
-import { getLists } from '@/api/decorate/decorate';
+import { getLists, setHome } from '@/api/decorate/decorate';
 import { RouterLink } from 'vue-router';
+import { MobileOutlined } from '@vicons/antd';
 
 export default defineComponent({
   name: 'StorePage',
@@ -12,6 +13,7 @@ export default defineComponent({
   setup () {
     const pageLists = ref<any>({});
     const loading = ref(false);
+    const message = useMessage();
     const menuOptions: MenuOption[] = [
       {
         label: '微页面',
@@ -32,6 +34,17 @@ export default defineComponent({
 
     handleGetPageLists();
 
+    async function handleSetHome (_: MouseEvent, id: number) {
+      try {
+        await setHome(id);
+        message.success('店铺首页设置完成');
+        handleGetPageLists();
+      } catch (error) {
+        console.log(error);
+        message.error('店铺首页设置失败');
+      }
+    }
+
     const columns: DataTableColumn[] = [
       {
         type: 'selection'
@@ -39,12 +52,24 @@ export default defineComponent({
       {
         title: '标题',
         key: 'title',
+        width: '300px',
+        render (row: any) {
+          return (
+            <div class='flex items-center'>
+              {row.title}
+              {row.is_home ? <NIcon class='ml-2' color='red' size={16}>
+                <MobileOutlined />
+              </NIcon> : null}
+            </div>
+          );
+        }
       },
       {
         title: '发布状态',
         key: 'status',
         render (row) {
           return h(NTag, {
+            size: 'small',
             type: row.status ? 'success' : 'info'
           }, {
             default: () => row.status ? '已发布' : '未发布'
@@ -70,7 +95,7 @@ export default defineComponent({
       {
         title: '操作',
         key: 'action',
-        width: '120px',
+        width: '200px',
         render (row: any) {
           return h(NSpace, {}, {
             default: () => [
@@ -91,6 +116,17 @@ export default defineComponent({
                   margin: 0
                 }
               }),
+              h(NA, {
+                onClick: (e: MouseEvent) => handleSetHome(e, row.id)
+              }, {
+                default: () => '设为主页'
+              }),
+              h(NDivider, {
+                vertical: true,
+                style: {
+                  margin: 0
+                }
+              }),
               h(NA, {}, {
                 default: () => '删除'
               })
@@ -101,6 +137,7 @@ export default defineComponent({
     ];
 
     return {
+      loading,
       columns,
       pageLists,
       menuOptions
@@ -109,6 +146,7 @@ export default defineComponent({
 
   render () {
     const {
+      loading,
       columns,
       pageLists
     } = this;
@@ -156,7 +194,7 @@ export default defineComponent({
             </NForm>
           </NCard>
 
-          <NDataTable rowKey={row => row.id} data={pageLists.data} columns={columns}></NDataTable>
+          <NDataTable loading={loading} rowKey={row => row.id} data={pageLists.data} columns={columns}></NDataTable>
         </NSpace>
       </SpaceView>
     );

@@ -23,6 +23,16 @@ export const detail = (id: number | string) => {
   });
 };
 
+export const setHome = (id: number) => {
+  return http.request<any>({
+    url: '/decorate/home',
+    data: {
+      id
+    },
+    method: 'PUT',
+  });
+};
+
 export const getLists = (): Promise<any[]> => {
   return http.request<any[]>({
     url: '/decorate',

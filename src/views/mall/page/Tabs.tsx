@@ -2,16 +2,16 @@ import { NTab, NTabs } from 'naive-ui';
 import { computed, defineComponent } from 'vue';
 import { useRouter } from 'vue-router';
 
-const storeTabProps = {
+const mallTabProps = {
   defaultValue: {
     type: String
   }
 };
 
 export default defineComponent({
-  name: 'StoreTabs',
+  name: 'MallTabs',
 
-  props: storeTabProps,
+  props: mallTabProps,
 
   setup () {
     const router = useRouter();
@@ -19,17 +19,17 @@ export default defineComponent({
       {
         name: 'page',
         title: '微页面',
-        path: '/store/page'
+        path: '/mall/page'
       },
       {
         name: 'category',
         title: '微页面分类',
-        path: '/store/page/category'
+        path: '/mall/page/category'
       },
       {
         name: 'draft',
         title: '微页面草稿',
-        path: '/store/page/draft'
+        path: '/mall/page/draft'
       }
     ];
 

@@ -203,7 +203,7 @@ export default defineComponent({
         <NLayoutHeader style="height: 56px; padding: 0 24px;" bordered>
           <NSpace justify='space-between' align='center' style={{ height: '100%' }}>
             <div>
-              <RouterLink to='/store/page' custom>
+              <RouterLink to='/mall/page' custom>
                 {{
                   default: ({ navigate }: any) => {
                     return (
