@@ -1,5 +1,5 @@
 import { computed, defineComponent, onMounted, ref } from 'vue';
-import { MenuOption, NButton, NIcon, NLayout, NLayoutHeader, NLayoutSider, NMenu, NSpace, useMessage } from 'naive-ui';
+import { MenuOption, NButton, NIcon, NLayout, NLayoutHeader, NLayoutSider, NMenu, NSpace, useMessage, NModal, NCard } from 'naive-ui';
 import { FreeLayout, Free, FreeTitleTextWidget, FreeWhiteHeightWidget, FreeWidgetsManageWidget } from 'free-core';
 import { AsideGroup, CoreWidget, PageDataSchemas } from 'free-core/lib/types/core/src/interface';
 import NutuiImageAdWidget from '@/components/free-nutui/image-ad';
@@ -50,6 +50,8 @@ export default defineComponent({
     const loading = ref(false);
     const router = useRouter();
     const route = useRoute();
+
+    const visiable = ref(false);
 
     const freeLayoutRef = ref();
 
@@ -187,6 +189,7 @@ export default defineComponent({
     return {
       menus,
       loading,
+      visiable,
       freeLayoutRef,
       handleSubmit
     };
@@ -199,53 +202,72 @@ export default defineComponent({
     } = this;
 
     return (
-      <NLayout position="absolute">
-        <NLayoutHeader style="height: 56px; padding: 0 24px;" bordered>
-          <NSpace justify='space-between' align='center' style={{ height: '100%' }}>
-            <div>
-              <RouterLink to='/mall/page' custom>
-                {{
-                  default: ({ navigate }: any) => {
-                    return (
-                      <NButton size='small' text tag='a' onClick={navigate} type='primary'>
-                        {{
-                          icon: () =>  <NIcon>
-                            <ArrowLeft20Filled />
-                          </NIcon>,
-                          default: () => '返回微页面'
-                        }}
+      <>
+        <NLayout position="absolute">
+          <NLayoutHeader style="height: 56px; padding: 0 24px;" bordered>
+            <NSpace justify='space-between' align='center' style={{ height: '100%' }}>
+              <div>
+                <RouterLink to='/mall/page' custom>
+                  {{
+                    default: ({ navigate }: any) => {
+                      return (
+                        <NButton size='small' text tag='a' onClick={navigate} type='primary'>
+                          {{
+                            icon: () =>  <NIcon>
+                              <ArrowLeft20Filled />
+                            </NIcon>,
+                            default: () => '返回微页面'
+                          }}
 
-                      </NButton>
-                    );
-                  }
-                }}
-              </RouterLink>
-            </div>
-            <NSpace size={[20, 0]}>
-              <NButton size='small' type='primary' secondary style={{ padding: '0 20px' }}>预览</NButton>
-              <NButton size='small' type='primary' style={{ padding: '0 20px' }} loading={loading} onClick={e => handleSubmit(e, false)}>保存</NButton>
-              <NButton size='small' type='primary' style={{ padding: '0 20px' }}>发布</NButton>
+                        </NButton>
+                      );
+                    }
+                  }}
+                </RouterLink>
+              </div>
+              <NSpace size={[20, 0]}>
+                <NButton size='small' type='primary' secondary style={{ padding: '0 20px' }} onClick={() => this.visiable = !this.visiable}>预览{JSON.stringify(this.visiable)}</NButton>
+                <NButton size='small' type='primary' style={{ padding: '0 20px' }} loading={loading} onClick={e => handleSubmit(e, false)}>保存</NButton>
+                <NButton size='small' type='primary' style={{ padding: '0 20px' }}>发布</NButton>
+              </NSpace>
             </NSpace>
-          </NSpace>
-        </NLayoutHeader>
-        <NLayout has-sider position="absolute" style="top: 52px;">
-          <NLayoutSider
-            width={76}
-            bordered
-          >
-            <NMenu
-              defaultValue={'diy'}
-              options={this.menus}
-              collapsed-width={76}
-              rootIndent={24}
+          </NLayoutHeader>
+          <NLayout has-sider position="absolute" style="top: 52px;">
+            <NLayoutSider
+              width={76}
+              bordered
             >
-            </NMenu>
-          </NLayoutSider>
-          <NLayout>
-            <FreeLayout asideGroup ref="freeLayoutRef" />
+              <NMenu
+                defaultValue={'diy'}
+                options={this.menus}
+                collapsed-width={76}
+                rootIndent={24}
+              >
+              </NMenu>
+            </NLayoutSider>
+            <NLayout>
+              <FreeLayout asideGroup ref="freeLayoutRef" />
+            </NLayout>
           </NLayout>
         </NLayout>
-      </NLayout>
+
+        <NModal transformOrigin='center' v-model:show={this.visiable} style={{
+          width: '600px'
+        }}>
+          <NCard size='huge' bordered={false} role='dialog' {...{
+            ariaModal: true
+          }}>
+            <pre class='text-center text-sm'>
+              <code>
+                动态渲染请访问 <NButton text tag='a' type="primary" {...{
+                  target: '_blank',
+                  href: 'https://github.com/eamesh/emesh-taro'
+                }}>eamesh/emesh-taro</NButton> 项目
+              </code>
+            </pre>
+          </NCard>
+        </NModal>
+      </>
     );
   }
 });
