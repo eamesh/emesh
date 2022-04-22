@@ -226,7 +226,7 @@ export default defineComponent({
                 </RouterLink>
               </div>
               <NSpace size={[20, 0]}>
-                <NButton size='small' type='primary' secondary style={{ padding: '0 20px' }} onClick={() => this.visiable = !this.visiable}>预览{JSON.stringify(this.visiable)}</NButton>
+                <NButton size='small' type='primary' secondary style={{ padding: '0 20px' }} onClick={() => this.visiable = !this.visiable}>预览</NButton>
                 <NButton size='small' type='primary' style={{ padding: '0 20px' }} loading={loading} onClick={e => handleSubmit(e, false)}>保存</NButton>
                 <NButton size='small' type='primary' style={{ padding: '0 20px' }}>发布</NButton>
               </NSpace>
