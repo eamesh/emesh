@@ -22,7 +22,7 @@ const nutuiSearchProps = widgetDataProps<NutuiSearchProps>({
 });
 
 export default defineComponent({
-  name: 'Search',
+  name: 'SearchBar',
 
   props: nutuiSearchProps,
 

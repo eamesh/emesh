@@ -53,7 +53,7 @@ const nutuiVideoPlayerProps = widgetDataProps<NutuiVideoPlayerProps>({
 });
 
 export default defineComponent({
-  name: 'Search',
+  name: 'VideoPlayer',
 
   props: nutuiVideoPlayerProps,
 
