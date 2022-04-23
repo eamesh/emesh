@@ -62,7 +62,7 @@ export default defineComponent({
                 <NSpace align='center' justify='space-between' class='nav-image-type' style={{ width: '100%' }}>
                   <NText>{modelUnref.background}</NText>
                   <NSpace>
-                    <NButton quaternary size='small'>重置</NButton>
+                    <NButton quaternary size='small' onClick={() => modelUnref.background = '#ffffff'}>重置</NButton>
                     <NColorPicker size='small' style={{ width: '80px' }} v-model:value={modelUnref.background} />
                   </NSpace>
                 </NSpace>
@@ -71,7 +71,7 @@ export default defineComponent({
                 <NSpace align='center' justify='space-between' class='nav-image-type' style={{ width: '100%' }}>
                   <NText>{modelUnref.inputBackground}</NText>
                   <NSpace>
-                    <NButton quaternary size='small'>重置</NButton>
+                    <NButton quaternary size='small' onClick={() => modelUnref.inputBackground = '#f7f7f7'}>重置</NButton>
                     <NColorPicker size='small' style={{ width: '80px' }} v-model:value={modelUnref.inputBackground} />
                   </NSpace>
                 </NSpace>
@@ -80,7 +80,7 @@ export default defineComponent({
                 <NSpace align='center' justify='space-between' class='nav-image-type' style={{ width: '100%' }}>
                   <NText>{modelUnref.textColor}</NText>
                   <NSpace>
-                    <NButton quaternary size='small'>重置</NButton>
+                    <NButton quaternary size='small' onClick={() => modelUnref.textColor = '#9f9f9f'}>重置</NButton>
                     <NColorPicker size='small' style={{ width: '80px' }} v-model:value={modelUnref.textColor} />
                   </NSpace>
                 </NSpace>
