@@ -1,0 +1,1 @@
+import{a as o}from"./index.c7bfc907.js";import{C as n,D as c}from"./index.78c09cee.js";const g=o.createInjectionKey("upload-image-main"),a=o.createInjectionKey("goods-action"),m=()=>{const e=n(a),{goodsModelRef:t,isAction:s}=e;return{goodsModel:c(()=>t.value),isAction:s}};export{g as c,a as g,m as u};

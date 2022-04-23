@@ -1,0 +1,1 @@
+import{S as e}from"./SpaceView.70eccce1.js";import{d as r,f as a,k as t}from"./index.78c09cee.js";import"./plugin-vue_export-helper.21dcd24c.js";var n=r({name:"ResourceIndex",setup(){},render(){return a(e,null,{default:()=>[t("\u7D20\u6750\u4E2D\u5FC3")]})}});export{n as default};

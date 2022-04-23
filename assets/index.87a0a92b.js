@@ -1,0 +1,1 @@
+import{S as e}from"./SpaceView.70eccce1.js";import{d as t,o,e as a,w as r,j as s,k as c}from"./index.78c09cee.js";import"./plugin-vue_export-helper.21dcd24c.js";const n=c(" \u7CFB\u7EDF\u8BBE\u7F6E "),d=t({setup(u){return(p,_)=>(o(),a(s(e),null,{default:r(()=>[n]),_:1}))}});export{d as default};

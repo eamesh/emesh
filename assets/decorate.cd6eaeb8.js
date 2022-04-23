@@ -1,0 +1,1 @@
+import{eH as t}from"./index.78c09cee.js";const s=e=>t.request({url:"/decorate",method:"POST",data:e}),u=(e,r)=>t.request({url:`/decorate/${e}`,method:"PUT",data:r}),a=e=>t.request({url:`/decorate/${e}`,method:"GET"}),d=e=>t.request({url:"/decorate/home",data:{id:e},method:"PUT"}),c=()=>t.request({url:"/decorate",method:"GET"});export{s as c,a as d,c as g,d as s,u};

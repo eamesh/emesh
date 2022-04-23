@@ -1,0 +1,1 @@
+import{ah as t,ai as a,J as i,dH as m}from"./index.78c09cee.js";import{t as s}from"./light.8df066b9.js";import{s as o}from"./light.e6bd6d56.js";const n=t({name:"DynamicTags",common:a,peers:{Input:i,Button:m,Tag:s,Space:o},self(){return{inputWidth:"64px"}}});var p=n;export{p as d};

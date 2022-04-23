@@ -1,0 +1,1 @@
+import{eH as r}from"./index.78c09cee.js";const l=(t={})=>r.request({url:"mall/group",method:"GET",params:t}),o=t=>r.request({url:"/mall/group",method:"POST",data:t}),s=(t,e)=>r.request({url:`/mall/group/${t}`,method:"PUT",data:e}),a=t=>r.request({url:`/mall/group/${t}`,method:"GET"});export{o as c,a as g,l,s as u};

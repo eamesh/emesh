@@ -1,0 +1,1 @@
+import{_ as a}from"./plugin-vue_export-helper.21dcd24c.js";import{o as r,ap as s,aq as _}from"./index.78c09cee.js";const o={},t={class:"space-view"};function c(e,n){return r(),s("div",t,[_(e.$slots,"default")])}var l=a(o,[["render",c]]);export{l as S};

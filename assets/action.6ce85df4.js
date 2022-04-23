@@ -1,0 +1,1 @@
+import{S as a}from"./SpaceView.70eccce1.js";import{d as r,f as e,au as t,k as o}from"./index.78c09cee.js";import"./plugin-vue_export-helper.21dcd24c.js";var u=r({name:"AuthRole",setup(){},render(){return e(a,null,{default:()=>[e(t,{size:"small",bordered:!0},{default:()=>[o("Action")]})]})}});export{u as default};

@@ -1,0 +1,1 @@
+import{S as e}from"./SpaceView.70eccce1.js";import{d as t,f as r,k as a}from"./index.78c09cee.js";import"./plugin-vue_export-helper.21dcd24c.js";var f=t({name:"SettingInfo",setup(){},render(){return r(e,null,{default:()=>[a("\u5E97\u94FA\u4FE1\u606F")]})}});export{f as default};

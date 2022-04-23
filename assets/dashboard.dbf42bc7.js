@@ -1,0 +1,1 @@
+import{S as e}from"./SpaceView.70eccce1.js";import{d as a,f as r,k as t}from"./index.78c09cee.js";import"./plugin-vue_export-helper.21dcd24c.js";var n=a({name:"DataIndex",setup(){},render(){return r(e,null,{default:()=>[t("\u6570\u636E\u6982\u51B5")]})}});export{n as default};

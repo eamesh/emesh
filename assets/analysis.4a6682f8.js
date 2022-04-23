@@ -1,0 +1,1 @@
+import{S as e}from"./SpaceView.70eccce1.js";import{d as a,f as r,k as t}from"./index.78c09cee.js";import"./plugin-vue_export-helper.21dcd24c.js";var u=a({name:"DataAnalysis",setup(){},render(){return r(e,null,{default:()=>[t("\u5B9E\u65F6\u5206\u6790")]})}});export{u as default};

@@ -1,0 +1,1 @@
+import{S as e}from"./SpaceView.70eccce1.js";import{d as r,f as t,k as a}from"./index.78c09cee.js";import"./plugin-vue_export-helper.21dcd24c.js";var i=r({name:"MemberAction",setup(){},render(){return t(e,null,{default:()=>[a("\u5BA2\u6237Action")]})}});export{i as default};

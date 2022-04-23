@@ -1,0 +1,1 @@
+import{S as e}from"./SpaceView.70eccce1.js";import{d as a,f as r,k as o}from"./index.78c09cee.js";import"./plugin-vue_export-helper.21dcd24c.js";var m=a({name:"MemberDashboard",setup(){},render(){return r(e,null,{default:()=>[o("\u5BA2\u6237\u6982\u51B5")]})}});export{m as default};

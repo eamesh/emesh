@@ -1,0 +1,1 @@
+import{S as e}from"./SpaceView.70eccce1.js";import{d as a,f as r,k as t}from"./index.78c09cee.js";import"./plugin-vue_export-helper.21dcd24c.js";var u=a({name:"AssetsDashboard",setup(){},render(){return r(e,null,{default:()=>[t("\u8D44\u4EA7\u603B\u89C8")]})}});export{u as default};
