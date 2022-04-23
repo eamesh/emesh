@@ -9,7 +9,8 @@ api部分是目前是私有项目, 基础功能开发完会开源
 
 ## Preview
 
-[预览](https://preview.v1.emesh.cc)
+[预览](https://preview.v1.emesh.cc)  
+[跨端小程序](https://github.com/eamesh/emesh-taro)
 
 ## Feature
 
