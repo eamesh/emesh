@@ -38,7 +38,7 @@ export default defineComponent({
                 <NSpace align='center' justify='space-between' class='nav-image-type' style={{ width: '100%' }}>
                   <NText>{modelUnref.background}</NText>
                   <NSpace>
-                    <NButton quaternary size='small'>重置</NButton>
+                    <NButton quaternary size='small' onClick={() => modelUnref.background = 'rgb(255, 248, 233)'}>重置</NButton>
                     <NColorPicker showAlpha={false} size='small' style={{ width: '80px' }} v-model:value={modelUnref.background} />
                   </NSpace>
                 </NSpace>
@@ -47,7 +47,7 @@ export default defineComponent({
                 <NSpace align='center' justify='space-between' class='nav-image-type' style={{ width: '100%' }}>
                   <NText>{modelUnref.color}</NText>
                   <NSpace>
-                    <NButton quaternary size='small'>重置</NButton>
+                    <NButton quaternary size='small' onClick={() => modelUnref.color = '#D9500B'}>重置</NButton>
                     <NColorPicker showAlpha={false} size='small' style={{ width: '80px' }} v-model:value={modelUnref.color} />
                   </NSpace>
                 </NSpace>
