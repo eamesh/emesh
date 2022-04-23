@@ -39,7 +39,7 @@ export default defineComponent({
                   <NText>{modelUnref.background}</NText>
                   <NSpace>
                     <NButton quaternary size='small'>重置</NButton>
-                    <NColorPicker size='small' style={{ width: '80px' }} v-model:value={modelUnref.background} />
+                    <NColorPicker showAlpha={false} size='small' style={{ width: '80px' }} v-model:value={modelUnref.background} />
                   </NSpace>
                 </NSpace>
               </NFormItem>
@@ -48,7 +48,7 @@ export default defineComponent({
                   <NText>{modelUnref.color}</NText>
                   <NSpace>
                     <NButton quaternary size='small'>重置</NButton>
-                    <NColorPicker size='small' style={{ width: '80px' }} v-model:value={modelUnref.color} />
+                    <NColorPicker showAlpha={false} size='small' style={{ width: '80px' }} v-model:value={modelUnref.color} />
                   </NSpace>
                 </NSpace>
               </NFormItem>

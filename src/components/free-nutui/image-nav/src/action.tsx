@@ -130,7 +130,7 @@ export const useAction = (props: any) => {
                   <NText>{modelUnref.style.backgroundColor}</NText>
                   <NSpace>
                     <NButton quaternary size='small'>重置</NButton>
-                    <NColorPicker size='small' style={{ width: '80px' }} v-model:value={modelUnref.style.backgroundColor} />
+                    <NColorPicker showAlpha={false} size='small' style={{ width: '80px' }} v-model:value={modelUnref.style.backgroundColor} />
                   </NSpace>
                 </NSpace>
               </NFormItem>
@@ -139,7 +139,7 @@ export const useAction = (props: any) => {
                   <NText>{modelUnref.style.color}</NText>
                   <NSpace>
                     <NButton quaternary size='small'>重置</NButton>
-                    <NColorPicker size='small' style={{ width: '80px' }} v-model:value={modelUnref.style.color} />
+                    <NColorPicker showAlpha={false} size='small' style={{ width: '80px' }} v-model:value={modelUnref.style.color} />
                   </NSpace>
                 </NSpace>
               </NFormItem>
@@ -148,7 +148,7 @@ export const useAction = (props: any) => {
                   <NText>{modelUnref.style.borderColor}</NText>
                   <NSpace>
                     <NButton quaternary size='small'>重置</NButton>
-                    <NColorPicker size='small' style={{ width: '80px' }} v-model:value={modelUnref.style.borderColor} />
+                    <NColorPicker showAlpha={false} size='small' style={{ width: '80px' }} v-model:value={modelUnref.style.borderColor} />
                   </NSpace>
                 </NSpace>
               </NFormItem>
