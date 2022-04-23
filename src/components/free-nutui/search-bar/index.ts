@@ -1,5 +1,5 @@
 import { Widget } from 'free-core/lib/types/core/src/interface';
-import Search, { NutuiSearchProps } from './src/Search';
+import Search, { NutuiSearchProps } from './src/SearchBar';
 import Thumb from './assets/thumb.png';
 import { markRaw } from 'vue';
 

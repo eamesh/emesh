@@ -4,7 +4,7 @@ import { FreeLayout, Free, FreeTitleTextWidget, FreeWhiteHeightWidget, FreeWidge
 import { AsideGroup, CoreWidget, PageDataSchemas } from 'free-core/lib/types/core/src/interface';
 import NutuiImageAdWidget from '@/components/free-nutui/image-ad';
 import NutuiImageNavWidget from '@/components/free-nutui/image-nav';
-import NutuiSearchWidget from '@/components/free-nutui/search';
+import NutuiSearchWidget from '@/components/free-nutui/search-bar';
 import NutuiNoticeBarhWidget from '@/components/free-nutui/notice-bar';
 import NutuiVideoPlayerWidget from '@/components/free-nutui/video-player';
 // import NutuiNavigationWidget from '@/components/free-nutui/navigation';
